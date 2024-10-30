@@ -7,12 +7,20 @@ const config = {
 	// for more information about preprocessors
 	preprocess: vitePreprocess(),
 
-	kit: {
-		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
-		adapter: adapter()
-	}
+    kit: {
+        adapter: adapter(),
+        alias: {
+            $components: "./src/lib/ui/components",
+            "$components/*": "./src/lib/ui/components/*",
+            "$actions/*": "./src/lib/ui/actions/*",
+            "$ui/*": "./src/lib/ui/*",
+            "$trpc/*": "./src/lib/trpc/*",
+            "$shared/*": "./src/lib/shared/*",
+            "$server/*": "./src/lib/server/*",
+            "$params/*": "./src/params/*",
+            "$api/*": "./src/routes/api/*",
+        },
+    },
 };
 
 export default config;
